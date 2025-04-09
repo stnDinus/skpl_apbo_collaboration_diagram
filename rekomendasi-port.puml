@@ -1,0 +1,14 @@
+@startuml
+actor "front-end" as fe
+boundary Router
+boundary Server
+control Resolver
+database database
+
+fe -> (Router): request graphql
+(Router) -> (Server): Handle("/query", server.Auth(srv))
+(Server) -> database: server.Auth(srv)
+database --> (Server): otorisasi berhasil
+(Server) -> (Resolver)
+(Resolver) -> fe: response graphql
+@enduml
