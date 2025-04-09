@@ -1,0 +1,9 @@
+@startuml
+actor "back-end" as be
+control Resolver
+
+be -> (Resolver): New()
+(Resolver) -> (Resolver): refreshPorts(ri time.Duration)
+(Resolver) --> IANA: makePorts()
+(Resolver) -> (Resolver): fillPorts(rdr *csv.Reader)
+@enduml

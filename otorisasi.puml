@@ -1,0 +1,11 @@
+@startuml
+actor "pengembang pihak ketiga / front-end" as req
+boundary Router
+boundary Server
+database database
+
+req --> (Router): request graphql
+(Router) -> (Server): Handle("/query", server.Auth(srv))
+(Server) -> database: server.Auth(srv)
+database --> (Server): otorisasi berhasil
+@enduml

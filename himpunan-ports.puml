@@ -1,0 +1,6 @@
+@startuml
+actor "back-end" as be
+control Resolver
+
+be -> (Resolver): SearchPort(toFind *model.Port)
+@enduml
